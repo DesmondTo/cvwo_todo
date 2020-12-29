@@ -1,34 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Task:</strong>
-  <%= @to_do.task %>
-</p>
-
-<p>
-  <strong>Detail:</strong>
-  <%= @to_do.detail %>
-</p>
-
-<p>
-  <strong>Due date:</strong>
-  <%= @to_do.due_date %>
-</p>
-
-<p>
-  <strong>Due time:</strong>
-  <%= @to_do.due_time %>
-</p>
-
-<p>
-  <strong>Important:</strong>
-  <%= @to_do.important %>
-</p>
-
-<p>
-  <strong>Repeat:</strong>
-  <%= @to_do.repeat %>
-</p>
-
-<%= link_to 'Edit', edit_to_do_path(@to_do) %> |
-<%= link_to 'Back', to_dos_path %>
+<div class="jumbotron">
+  <h1 class="display-4">
+    <p>
+      <strong><%= @to_do.task %></strong>
+    </p>
+  </h1>
+  <p class="lead"><%= @to_do.detail %></p>
+  <hr class="my-4">
+    <p>
+    <strong>Due date: </strong>
+      <%= @to_do.due_date %>
+    </p>
+    <p>
+    <strong>Due time: </strong>
+      <%= @to_do.due_time %>
+    </p>
+    <p>
+      <strong>Important: </strong>
+      <%= @to_do.important %>
+    </p>
+    <p>
+      <strong>Repeat: </strong>
+      <%= @to_do.repeat %>
+    </p>
+    <%= link_to 'Edit', edit_to_do_path(@to_do), type:"button", class: "btn btn-primary" %> |
+    <%= link_to 'Back', to_dos_path, type:"button", class: "btn btn-outline-primary"%>
+</div>

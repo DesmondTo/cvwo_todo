@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <h1>To Do List</h1>
 
-<table>
-  <thead>
+<table class="table table-lg table-hover">
+  <thead class="table-dark">
     <tr>
       <th>Task</th>
       <th>Detail</th>
@@ -34,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New To Do', new_to_do_path %>
+<%= link_to 'New To Do', new_to_do_path, type:"button", class: "btn btn-outline-dark" %>

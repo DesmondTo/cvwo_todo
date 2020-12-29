@@ -11,37 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :task %>
-    <%= form.text_field :task %>
+    <%= form.text_field :task, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <br>
+
+  <div class="field form-group" style="font-size:14pt;">
     <%= form.label :detail %>
-    <%= form.text_area :detail %>
+    <%= form.text_area :detail, class: "form-control form-control-lg" %>
   </div>
 
-  <div class="field">
-    <%= form.label :due_date %>
+  <br>
+
+  <div class="field form-group">
+    <%= form.label :due_date %><br>
     <%= form.date_select :due_date %>
   </div>
 
-  <div class="field">
-    <%= form.label :due_time %>
+  <br>
+
+  <div class="field form-group">
+    <%= form.label :due_time %> <br>
     <%= form.time_select :due_time %>
   </div>
 
-  <div class="field">
+  <br>
+
+  <div class="field form-group">
     <%= form.label :important %>
     <%= form.check_box :important %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :repeat %>
     <%= form.check_box :repeat %>
   </div>
 
+  <br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
+
+  <br>
 <% end %>
