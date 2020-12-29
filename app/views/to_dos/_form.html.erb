@@ -18,9 +18,14 @@
 
   <br>
 
-  <div class="field form-group" style="font-size:14pt;">
+  <div class="field form-group">
     <%= form.label :detail %>
     <%= form.text_area :detail, class: "form-control form-control-lg" %>
+  </div>
+
+  <div class="field form-group>
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, id: :friend_user_id, class: "form-control", value: current_user.id, type: :hidden %>
   </div>
 
   <br>
