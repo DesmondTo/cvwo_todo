@@ -22,6 +22,8 @@
       <strong>Repeat: </strong>
       <%= @to_do.repeat %>
     </p>
-    <%= link_to 'Edit', edit_to_do_path(@to_do), type:"button", class: "btn btn-primary" %> |
+    <%= link_to 'Edit', edit_to_do_path(@to_do), type:"button", class: "btn btn-primary" %> 
+    <%= link_to 'Delete', @to_do, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> |
     <%= link_to 'Back', to_dos_path, type:"button", class: "btn btn-outline-primary"%>
+    
 </div>
