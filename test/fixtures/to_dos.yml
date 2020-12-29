@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task: MyString
+  detail: MyText
+  due_date: 2020-12-29
+  due_time: 2020-12-29 15:45:33
+  important: false
+  repeat: false
+
+two:
+  task: MyString
+  detail: MyText
+  due_date: 2020-12-29
+  due_time: 2020-12-29 15:45:33
+  important: false
+  repeat: false
