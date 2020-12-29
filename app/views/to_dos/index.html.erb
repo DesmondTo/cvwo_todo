@@ -1,39 +1,39 @@
-<h1>To Do List</h1>
+<% if user_signed_in? %>
+  <h1>To Do List</h1>
 
-<table class="table table-lg table-hover">
-  <thead class="table-dark">
-    <tr>
-      <th>Task</th>
-      <th>Detail</th>
-      <th>User Id</th>
-      <th>Due date</th>
-      <th>Due time</th>
-      <th>Important</th>
-      <th>Repeat</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <table class="table table-lg table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Task</th>
+        <th>Due date</th>
+        <th>Due time</th>
+        <th>Important</th>
+        <th>Repeat</th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @to_dos.each do |to_do| %>
-      <% if to_do.user == current_user %>
-        <tr>
-          <td><%= to_do.task %></td>
-          <td><%= to_do.detail %></td>
-          <td><%= to_do.user_id %></td>
-          <td><%= to_do.due_date %></td>
-          <td><%= to_do.due_time %></td>
-          <td><%= to_do.important %></td>
-          <td><%= to_do.repeat %></td>
-          <td><%= link_to 'Show', to_do %></td>
-          <td><%= link_to 'Edit', edit_to_do_path(to_do) %></td>
-          <td><%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+    <tbody>
+      <% @to_dos.each do |to_do| %>
+        <% if to_do.user == current_user %>
+          <tr>
+            <td><%= link_to to_do.task, to_do %></td>
+            <td><%= to_do.due_date %></td>
+            <td><%= to_do.due_time %></td>
+            <td><%= to_do.important %></td>
+            <td><%= to_do.repeat %></td>
+            <td><%= link_to 'Delete', to_do, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %></td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New To Do', new_to_do_path, type:"button", class: "btn btn-outline-dark" %>
+  <%= link_to 'New To Do', new_to_do_path, type:"button", class: "btn btn-outline-dark" %>
+<% else %>
+  <h1>Hello Todo User!</h1>
+  <p>This is my Todo App webpage!</p>
+<% end %>
+
