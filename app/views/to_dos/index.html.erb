@@ -5,6 +5,7 @@
     <tr>
       <th>Task</th>
       <th>Detail</th>
+      <th>User Id</th>
       <th>Due date</th>
       <th>Due time</th>
       <th>Important</th>
@@ -15,17 +16,20 @@
 
   <tbody>
     <% @to_dos.each do |to_do| %>
-      <tr>
-        <td><%= to_do.task %></td>
-        <td><%= to_do.detail %></td>
-        <td><%= to_do.due_date %></td>
-        <td><%= to_do.due_time %></td>
-        <td><%= to_do.important %></td>
-        <td><%= to_do.repeat %></td>
-        <td><%= link_to 'Show', to_do %></td>
-        <td><%= link_to 'Edit', edit_to_do_path(to_do) %></td>
-        <td><%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if to_do.user == current_user %>
+        <tr>
+          <td><%= to_do.task %></td>
+          <td><%= to_do.detail %></td>
+          <td><%= to_do.user_id %></td>
+          <td><%= to_do.due_date %></td>
+          <td><%= to_do.due_time %></td>
+          <td><%= to_do.important %></td>
+          <td><%= to_do.repeat %></td>
+          <td><%= link_to 'Show', to_do %></td>
+          <td><%= link_to 'Edit', edit_to_do_path(to_do) %></td>
+          <td><%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

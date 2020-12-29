@@ -1,5 +1,7 @@
 class ToDosController < ApplicationController
   before_action :set_to_do, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /to_dos
   # GET /to_dos.json
@@ -14,7 +16,8 @@ class ToDosController < ApplicationController
 
   # GET /to_dos/new
   def new
-    @to_do = ToDo.new
+    # @to_do = ToDo.new
+    @to_do = current_user.to_dos.build
   end
 
   # GET /to_dos/1/edit
@@ -24,7 +27,8 @@ class ToDosController < ApplicationController
   # POST /to_dos
   # POST /to_dos.json
   def create
-    @to_do = ToDo.new(to_do_params)
+    # @to_do = ToDo.new(to_do_params)
+    @to_do = current_user.to_dos.build(to_do_params)
 
     respond_to do |format|
       if @to_do.save
@@ -59,6 +63,11 @@ class ToDosController < ApplicationController
       format.html { redirect_to to_dos_url, notice: 'To do was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @to_do = current_user.to_dos.find_by(id: params[:id])
+    redirect_to to_dos_path, notice: "Not Authorized To Edit This Todo" if @to_do.nil?
   end
 
   private
